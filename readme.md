@@ -1,6 +1,6 @@
 #drop-angular
 
-An example project showing a way to lash together [dropwizard](dropwizard.io) and a [browserified](http://browserify.org) [angular](https://angularjs.org) app.
+An example project showing a way to lash together [dropwizard](http://dropwizard.io) and a [browserified](http://browserify.org) [angular](https://angularjs.org) app.
 
 ##Prerequisites
 
