@@ -12,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-@Path("/demo")
+@Path("/demo.json")
 @Produces(MediaType.APPLICATION_JSON)
 public class DemoResource {
     private final AtomicLong counter;
@@ -23,7 +23,7 @@ public class DemoResource {
 
     @GET
     @Timed
-    public Saying sayHello(@QueryParam("name") Optional<String> name) {
-        return new Saying(counter.incrementAndGet(), "yo");
+    public Saying sayHello(@QueryParam("area") String area, @QueryParam("query") Optional<String> query) {
+        return new Saying(counter.incrementAndGet(), "You sent: " + area +  " and " + query.or("(nothing)"));
     }
 }
