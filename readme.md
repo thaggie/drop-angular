@@ -10,11 +10,11 @@ An example project showing a way to lash together [dropwizard](http://dropwizard
 ##Building
 
 ```
-gradle jar
+gradle shadowJar
 ````
 
 ##Running
 
 ```
-java -jar build/libs/drop-angular.jar server demo.yml
+java -jar build/libs/drop-angular-all.jar server demo.yml
 ```

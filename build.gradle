@@ -1,5 +1,12 @@
-apply plugin: 'java'
-apply plugin: 'eclipse'
+buildscript {
+  repositories { jcenter() }
+  dependencies {
+    classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.0'
+  }
+}
+
+apply plugin: 'java' // or 'groovy'. Must be explicitly applied
+apply plugin: 'com.github.johnrengelman.shadow'
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
@@ -19,10 +26,8 @@ jar {
         attributes "Implementation-Version": "1.0"
         attributes "Main-Class" : "com.demo.DemoApplication"
     }
- 
-    doFirst {
-        from (configurations.runtime.resolve().collect { it.isDirectory() ? it : zipTree(it) }) {
-            exclude 'META-INF/MANIFEST.MF'
-        }
-    }
+}
+
+shadowJar {
+  mergeServiceFiles()
 }
